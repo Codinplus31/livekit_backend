@@ -5,17 +5,6 @@ services:
     dockerfilePath: ./livekit.Dockerfile
     plan: standard
     autoDeploy: true
-    envVars:
-      - key: LIVEKIT_API_KEY
-        value: devkey
-      - key: LIVEKIT_API_SECRET
-        value: secret
-      - key: LIVEKIT_KEYS
-        value: devkey:secret
-      - key: LIVEKIT_PORT
-        value: 7880
-      - key: LIVEKIT_WS_URL
-        value: ws://livekit-server:7880
 
   - type: web
     name: livekit-express
@@ -25,12 +14,6 @@ services:
     autoDeploy: true
     envVars:
       - key: LIVEKIT_API_KEY
-        fromService:
-          name: livekit-server
-          type: web
-          envVarKey: LIVEKIT_API_KEY
+        value: myappkey
       - key: LIVEKIT_API_SECRET
-        fromService:
-          name: livekit-server
-          type: web
-          envVarKey: LIVEKIT_API_SECRET
+        value: supersecretvalue
