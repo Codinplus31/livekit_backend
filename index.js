@@ -16,6 +16,10 @@ app.get("/", (req, res) => {
   res.send("LiveKit + Express backend running");
 });
 
+app.get("/a", (req, res) => {
+  res.send("LiveKit + Express backend running");
+});
+
 // Endpoint to get a participant token
 app.post("/get-token", (req, res) => {
   const { roomName, participantName } = req.body;
